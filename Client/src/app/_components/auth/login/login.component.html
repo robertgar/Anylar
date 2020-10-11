@@ -1,0 +1,45 @@
+<div class='container'>
+  <form #loginForm="ngForm" (ngSubmit)="onLogIn()">
+    <mat-card>
+      <mat-card-title>
+        <mat-icon>perm_identity</mat-icon>
+        <span>Login</span>
+      </mat-card-title>
+      <mat-card-content>
+        <mat-input-container>
+          <input matInput
+            [(ngModel)]="email"
+            name="email"
+            pattern="^\S+@\S+$"
+            required="required"
+            placeholder="Email" />
+        </mat-input-container>
+        <mat-input-container>
+          <input matInput
+            [(ngModel)]="password"
+            name="password"
+            required="required"
+            pattern=".{6,30}"
+            type="password"
+            placeholder="Password" />
+        </mat-input-container>
+        <div *ngIf="warningMessage">
+           <mat-icon>warning</mat-icon>
+           {{warningMessage}}
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+      <button
+        mat-raised-button
+        type="submit" color="primary">
+        <span>Login</span>
+      </button>
+      </mat-card-actions>
+      <a  class="link" 
+        [routerLink]="['/register']"
+        routerLinkActive="link-active">
+        <span>Don't have an account?</span>
+      </a> 
+    </mat-card>
+  </form>
+</div>
