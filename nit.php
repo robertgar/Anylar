@@ -2,10 +2,9 @@
   header('Access-Control-Allow-Origin: *'); 
   header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
   
-  $json = file_get_contents('php://input');
 $direc='';
 $nombre='';
-$a=  json_decode($json);
+$a=$_GET['nit'];
 
 $buffer='<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:ser="http://services.ws.ingface.com/">
