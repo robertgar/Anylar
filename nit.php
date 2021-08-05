@@ -55,11 +55,13 @@ $tl= $div[1].' '.$div[0];
 $nombre = utf8_decode(str_replace(',', '  ', $tl));
 }
 curl_close ($soap_do);
-  class Result {}
+
+$data = ['resultado' => "$res", 'mensaje' => $direc, 'mensaje1' => $nombre];
+ /* class Result {}
   $response = new Result();
 $response->resultado = $res;
   $response->mensaje = $direc;
-  $response->mensaje1 = $nombre;
+  $response->mensaje1 = $nombre;*/
   
 
 
