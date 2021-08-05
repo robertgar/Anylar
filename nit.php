@@ -4,7 +4,9 @@
   
 $direc='';
 $nombre='';
-$a=$_GET['nit'];
+$json = file_get_contents('php://input');
+ 
+  $params = json_decode($json);
 
 $buffer='<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:ser="http://services.ws.ingface.com/">
@@ -15,7 +17,7 @@ xmlns:ser="http://services.ws.ingface.com/">
 <usuario>DEMO</usuario>
 <!--Optional:-->
 <clave>C2FDC80789AFAF22C372965901B16DF533A4FCB19FD9F2FD5CBDA554032983B0</clave>
-<nit>'.$a.'</nit>
+<nit>'.$params->nit.'</nit>
 </ser:nitContribuyentes>
 </soapenv:Body';
 
