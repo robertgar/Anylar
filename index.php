@@ -76,29 +76,14 @@ $body = $xml->xpath('//SBody')[0];
 $array = json_decode(json_encode((array)$body), TRUE); 
 //print_r($array);
 
-  
  echo utf8_decode($array['ns2nitContribuyentesResponse']['return']['direccion_completa']);
  echo '<br>';
- echo '<br>';
  $aaaa= utf8_decode($array['ns2nitContribuyentesResponse']['return']['nombre']);
-
-  echo '<br>';
- echo '<br>';
 $div=explode( ',,', $aaaa  );
-
 $tl= $div[1].' '.$div[0]; 
 $salida = str_replace(',', '  ', $tl);
+ echo '<br>';	
 echo $salida;
-
-
-
-echo '<br>';
-
-
-
-
-
-
 }
 
 
