@@ -59,20 +59,14 @@ $nombre = str_replace(',', '  ', $tl);
 }
 curl_close ($soap_do);
 
-
  class Result {}
   $response = new Result();
 $response->resultado = $res;
   $response->mensaje = $direc;
   $response->mensaje1 = $nombre;
   
-echo $res;
-echo $direc;
-echo $nombre;
-
+echo json_encode($response);
   header('Content-Type: application/json');
-
-echo json_encode($response);  
-
+  
 
 ?>
