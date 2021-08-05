@@ -46,7 +46,7 @@ echo 'Curl error: ' . curl_error($soap_do);
 $nombre='';
 } else {
   $res='OK';
-$response = preg_replace("/(<\/?)(\w+):([^>]*>)/", "$1$2$3", $result);
+/*$response = preg_replace("/(<\/?)(\w+):([^>]*>)/", "$1$2$3", $result);
 $xml = new SimpleXMLElement($response);
 $body = $xml->xpath('//SBody')[0];
 $array = json_decode(json_encode((array)$body), TRUE); 
@@ -54,7 +54,22 @@ $array = json_decode(json_encode((array)$body), TRUE);
  $aaaa= utf8_decode($array['ns2nitContribuyentesResponse']['return']['nombre']);
 $div=explode( ',,', $aaaa  );
 $tl= $div[1].' '.$div[0]; 
-$nombre = utf8_decode(str_replace(',', '  ', $tl));
+$nombre = utf8_decode(str_replace(',', '  ', $tl));*/
+  
+  
+  $response = preg_replace("/(<\/?)(\w+):([^>]*>)/", "$1$2$3", $result);
+$xml = new SimpleXMLElement($response);
+$body = $xml->xpath('//SBody')[0];
+$array = json_decode(json_encode((array)$body), TRUE); 
+
+$direc=utf8_decode($array['ns2nitContribuyentesResponse']['return']['direccion_completa']);
+ $aaaa= utf8_decode($array['ns2nitContribuyentesResponse']['return']['nombre']);
+$div=explode( ',,', $aaaa  );
+$tl= $div[1].' '.$div[0]; 
+$salida = str_replace(',', '  ', $tl);
+$nombre = $salida;
+  
+  
 }
 curl_close ($soap_do);
 
