@@ -4,6 +4,7 @@
   
 $direc='';
 $nombre='';
+$res='';
 $json = file_get_contents('php://input');
  
   $params = json_decode($json);
@@ -40,7 +41,9 @@ $err = curl_error($soap_do);
            // Verificar si ocurrió algún error
 if (curl_exec($soap_do) === false) {
 echo 'Curl error: ' . curl_error($soap_do);
+  $res='error';
 } else {
+  $res='OK';
 $response = preg_replace("/(<\/?)(\w+):([^>]*>)/", "$1$2$3", $result);
 $xml = new SimpleXMLElement($response);
 $body = $xml->xpath('//SBody')[0];
@@ -54,9 +57,10 @@ $nombre = utf8_decode(str_replace(',', '  ', $tl));
 curl_close ($soap_do);
   class Result {}
   $response = new Result();
+$response->resultado = $res;
   $response->mensaje = $direc;
   $response->mensaje1 = $nombre;
-  $response->resultado = 'OK';
+  
 
 
   header('Content-Type: application/json');
