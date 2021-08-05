@@ -42,6 +42,8 @@ $err = curl_error($soap_do);
 if (curl_exec($soap_do) === false) {
 echo 'Curl error: ' . curl_error($soap_do);
   $res='error';
+  $direc='';
+$nombre='';
 } else {
   $res='OK';
 $response = preg_replace("/(<\/?)(\w+):([^>]*>)/", "$1$2$3", $result);
@@ -66,7 +68,8 @@ $response->resultado = $res;
 
 
   header('Content-Type: application/json');
-  echo json_encode($response);  
+echo json_encode($data);
+//  echo json_encode($response);  
 
 
 ?>
