@@ -54,9 +54,10 @@ $nombre = utf8_decode(str_replace(',', '  ', $tl));
 curl_close ($soap_do);
   class Result {}
   $response = new Result();
-  $response->resultado = 'OK';
   $response->mensaje = $direc;
   $response->mensaje1 = $nombre;
+  $response->resultado = 'OK';
+
 
   header('Content-Type: application/json');
   echo json_encode($response);  
