@@ -54,7 +54,7 @@ $array = json_decode(json_encode((array)$body), TRUE);
  $aaaa= utf8_decode($array['ns2nitContribuyentesResponse']['return']['nombre']);
 $div=explode( ',,', $aaaa  );
 $tl= $div[1].' '.$div[0]; 
-$nombre = str_replace(',', '  ', $tl);
+$nombre = utf8_decode(str_replace(',', '  ', $tl));
 
 }
 curl_close ($soap_do);
