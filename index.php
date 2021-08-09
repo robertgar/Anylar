@@ -1,10 +1,10 @@
 <?php
-$servername = "SQL5102.site4now.net";
+$servername = "SQL5102.site4now.net, 1433";
 $database = "db_a54053_bdprueba";
 $username = "db_a54053_bdprueba_admin";
 $password = "Marlon1989";
 
-$connectionInfo = array( "Database"=>$database, "UID"=>$username, "PWD"=>$password);
+$connectionInfo = array( "Database"=>$database, "UID"=>$username, "PWD"=>$password, 'CharacterSet'=>'UTF-8');
 $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
 if( $conn ) {
